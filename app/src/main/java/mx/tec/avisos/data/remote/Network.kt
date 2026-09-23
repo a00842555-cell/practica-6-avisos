@@ -26,7 +26,7 @@ object Network {
      */
     fun crearApi(interceptor: Interceptor? = null, authenticator: Authenticator? = null): AvisosApi {
         val logging = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BASIC
+            level = HttpLoggingInterceptor.Level.HEADERS
         }
 
         val client = OkHttpClient.Builder().apply {
