@@ -21,11 +21,15 @@ enum class Rol {
  *  - `expiraEn`     el segundo (epoch) en que el access deja de servir.
  */
 data class Sesion(
+
     val usuario: String,
     val rol: Rol,
     val accessToken: String,
     val refreshToken: String,
     val expiraEn: Long
-) {
+){
     fun segundosRestantes(ahora: Long = System.currentTimeMillis() / 1000): Long = expiraEn - ahora
+    val puedePublicar: Boolean get() = rol == Rol.PROFESOR
+
 }
+
